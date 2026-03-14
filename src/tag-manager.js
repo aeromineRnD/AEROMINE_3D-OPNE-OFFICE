@@ -57,8 +57,16 @@ export class TagManager {
   }
 
   _createTag(obj, node, anchorPosition) {
+    const categoryClass = {
+      'Fire Safety':     'pin--fire',
+      'First Aid':       'pin--aid',
+      'Emergency Alert': 'pin--emergency',
+      'Emergency Egress':'pin--emergency',
+      'Meeting Room':    'pin--meeting',
+    }[obj.category] || '';
+
     const el = document.createElement('div');
-    el.className = 'building-tag';
+    el.className = `building-tag ${categoryClass}`;
     el.innerHTML = `
       <span class="tag-icon">${obj.icon}</span>
       <span class="tag-name">${obj.name}</span>

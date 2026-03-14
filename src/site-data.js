@@ -121,17 +121,6 @@ export const OBJECTS = [
     camDir: [1, 0.3, 0],
   },
   {
-    meshName: 'FirstAidCabinetDoor',
-    name: 'First Aid Cabinet',
-    category: 'First Aid',
-    icon: '🩺',
-    location: 'Central Office - North Wall',
-    description: 'Wall-mounted first aid cabinet stocked with bandages, antiseptics, gloves, scissors, and emergency contact cards. Inspect contents monthly. Refill after any use.',
-    contact: 'Safety Officer',
-    photo: null,
-    camDir: [1, 0.3, 0],
-  },
-  {
     meshName: 'Circle',
     name: 'Fire Extinguisher 6',
     category: 'Fire Safety',

@@ -111,19 +111,28 @@ html, body {
 
 /* ─── Object Pins ─────────────────────────────────────────────── */
 .building-tag {
+  --pin-color: #3a8fd4;   /* default: blue (meeting rooms) */
+  --pin-rgb: 58, 143, 212;
+
   position: relative;
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--accent);
+  background: var(--pin-color);
   border: 2px solid rgba(255, 255, 255, 0.6);
   cursor: pointer;
   user-select: none;
   box-shadow:
-    0 0 0 3px rgba(58, 143, 212, 0.25),
-    0 0 10px rgba(58, 143, 212, 0.5);
+    0 0 0 3px rgba(var(--pin-rgb), 0.25),
+    0 0 10px rgba(var(--pin-rgb), 0.5);
   transition: transform 0.15s, box-shadow 0.15s;
 }
+
+/* Category colours */
+.building-tag.pin--fire      { --pin-color: #d43a3a; --pin-rgb: 212, 58, 58; }
+.building-tag.pin--aid       { --pin-color: #2a9e5c; --pin-rgb: 42, 158, 92; }
+.building-tag.pin--emergency { --pin-color: #e8900a; --pin-rgb: 232, 144, 10; }
+.building-tag.pin--meeting   { --pin-color: #3a8fd4; --pin-rgb: 58, 143, 212; }
 
 /* Pulse ring */
 .building-tag::before {
@@ -131,7 +140,7 @@ html, body {
   position: absolute;
   inset: -5px;
   border-radius: 50%;
-  border: 1.5px solid rgba(58, 143, 212, 0.4);
+  border: 1.5px solid rgba(var(--pin-rgb), 0.4);
   animation: pin-pulse 2s ease-out infinite;
 }
 
@@ -144,8 +153,8 @@ html, body {
 .building-tag:hover {
   transform: scale(1.35);
   box-shadow:
-    0 0 0 4px rgba(58, 143, 212, 0.35),
-    0 0 16px rgba(58, 143, 212, 0.7);
+    0 0 0 4px rgba(var(--pin-rgb), 0.35),
+    0 0 16px rgba(var(--pin-rgb), 0.7);
 }
 
 /* Hide text — pins only */
