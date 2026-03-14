@@ -4,14 +4,33 @@ Interactive 3D facility map for the Aeromine open office environment. Built with
 
 ## Features
 
-- 3D model viewer with orbit controls, environment lighting, and ACES filmic tone mapping
-- Color-coded interactive pins by category (fire safety, emergency, first aid, meeting rooms)
-- Smooth camera focus animation per object with configurable approach direction
-- Sliding information panel with responsive mobile bottom-sheet layout
-- Tooltip on pin hover showing object name
-- Real-time search filter by object name or category
-- Category legend with toggle buttons to show or hide pin groups
-- Reset camera button to return to the initial overview
+### 3D Viewer
+- WebGL rendering with ACES filmic tone mapping and SRGB color space for accurate material representation
+- PBR environment lighting via PMREMGenerator with RoomEnvironment, ensuring metallic and specular materials render correctly
+- Orbit controls with inertia damping, polar angle limits to prevent camera going below ground, and configurable zoom range
+- Automatic camera fit on model load, centering the scene and setting near/far planes relative to model scale
+- Smooth camera focus animation with ease-in-out interpolation when navigating to an object
+- Per-object configurable camera approach direction, allowing wall-mounted objects to be viewed correctly regardless of orientation
+- Reset camera button that smoothly returns to the initial overview from any position
+
+### Interactive Pins
+- CSS2D overlay pins rendered above each object in world space, always facing the camera
+- Pulsing ring animation on each pin to draw attention without being intrusive
+- Color-coded by category: fire safety (red), emergency (orange), first aid (green), meeting rooms (blue)
+- Hover tooltip showing the object name before clicking
+- Pin visibility and interactivity respond to both search and category filters simultaneously
+
+### Information Panel
+- Slide-in panel on desktop (right side, 320px) with cubic-bezier transition
+- Responsive bottom sheet on mobile screens, occupying 25% of viewport height with a drag-handle indicator
+- Displays object name, category, location, description, contact, and an optional photo
+- Closes on outside click or via the close button
+
+### Navigation and Filtering
+- Real-time search bar in the header, filtering pins by object name or category as you type
+- Category legend with four toggle buttons, allowing individual categories to be shown or hidden
+- Search and category filters work together, a pin is visible only if it satisfies both conditions
+- All filter state is in-memory with no page reloads or URL changes
 
 ## Technology Stack
 
